@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import News, Category
+from .models import News, Category, Comment
 
 
 class NewsAdmin(admin.ModelAdmin):
@@ -17,5 +17,12 @@ class CategoryAdmin(admin.ModelAdmin):
     search_fields = ('id', 'title')
 
 
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name',)
+    list_filter = ('id', 'name',)
+    search_fields = ('id', 'name',)
+
+
 admin.site.register(News, NewsAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Comment, CommentAdmin)
